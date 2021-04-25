@@ -44,8 +44,16 @@ app.get('/',function(req,res){
 		res.send("無法取得空氣品質資料～");
     });
 });
-
-
+const passcode = '1234';
+app.get('/btn', function(req, res) {
+	if (req.query.key !== passcode) {
+		res.status(401).send('ERROR!');
+	}
+	
+let id = req.query.id;
+res.send("id: " + id);
+	
+	
 //app.get('/',function(req,res){
 //    res.send('Hello World!');
 //});
