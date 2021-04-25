@@ -53,12 +53,14 @@ app.get('/btn', function(req, res) {
 	}
 	
 let id = req.query.id;
+let car_no = req.query.car_no
+
 res.send("id: " + id);
 	switch (id) {
 		case 'car_alrm':
 			bot.push(ME, {
 				type: 'text',
-				text: 'car 1234 車內有人且溫度高於40度,麻煩趕快查看'
+				text: '車號'+car_no+ '車內有人且溫度高於40度,麻煩趕快查看'
 			});
 			break;
 	}
