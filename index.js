@@ -17,6 +17,7 @@ app.get('/',function(req,res){
 
 app.post('/linewebhook', linebotParser);
 
+// 回覆收到的訊息文字
 bot.on('message', function (event) {
 	event.reply(event.message.text).then(function (data) {
 		console.log('Success', data);
