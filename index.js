@@ -2,7 +2,8 @@ const linebot = require('./lib/linebot');
 const express = require('express');
 const rp = require('request-promise');
 const bodyParser = require('body-parser');
-
+const ME = 'U83c12de9b832a18382fbd9eef89dcb36'; // LINE USER ID
+ 
 
 // 讀取開放資料庫資料
 function readAQI(repos){
@@ -53,7 +54,14 @@ app.get('/btn', function(req, res) {
 	
 let id = req.query.id;
 res.send("id: " + id);
-	
+	switch (id) {
+		case 'car_alrm':
+			bot.push(ME, {
+				type: 'text',
+				text: 'car 1234 車內有人且溫度高於40度,麻煩趕快查看'
+			});
+			break;
+	}
 });
 	
 //app.get('/',function(req,res){
