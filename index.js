@@ -56,17 +56,27 @@ app.post('/linewebhook', linebotParser);
 bot.on('message', function (event) {
 	switch (event.message.type) {
 		case 'text':
-			let data;
-			rp(aqiOpt)
-			.then(function (repos) {
-				data = readAQI(repos);
-				event.reply(
-					data.County + data.SiteName +'\n\nPM2.5指數：'+ data["PM2.5_AVG"] + 
-					    '\n狀態：' + data.Status);
+			switch (event.message.text) {
+				case '空氣':
+					let data;
+					rp(aqiOpt)
+					.then(function (repos) {
+						data = readAQI(repos);
+						event.reply(data.County + data.SiteName +
+						'\n\nPM2.5指數：'+ data["PM2.5_AVG"] + 
+					        '\n狀態：' + data.Status);
 					})
 					.catch(function (err) {
-				event.reply('無法取得空氣品質資料～');
+						event.reply('無法取得空氣品質資料～');
 					});
+					break;
+
+				case 'Me':
+					event.source.profile().then(function (profile) {
+						return event.reply('Hello ' + profile.displayName + ' ' + profile.userId);
+					});
+					break;
+			}
 			break;
 		case 'sticker':
 			event.reply({
