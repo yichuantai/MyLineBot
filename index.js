@@ -60,7 +60,7 @@ res.send("id: " + id);
 		case 'car_alrm':
 			bot.push(ME, {
 				type: 'text',
-				text: '車號'+car_no+ '車內有人且溫度高於40度,麻煩趕快查看'
+				text: 'Car No:'+car_no+ ' temperature is exceeds 38 degree and there are people in the car!'
 			});
 			break;
 	}
