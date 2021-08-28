@@ -61,7 +61,7 @@ res.send("id: " + id);
 		case 'car_alrm':
 			bot.push(ME, {
 				type: 'text',
-				text: 'In-car temperature of car number '+car_no+ ' is + temperature + over 40 Celsius degrees and there are still people in the car.Please check as soon as possible.'
+				text: 'In-car temperature of car number '+car_no+ ' is ' + temperature +' over 40 Celsius degrees and there are still people in the car.Please check as soon as possible.'
 			});
 			break;
 	}
