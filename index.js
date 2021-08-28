@@ -98,9 +98,6 @@ bot.on('message', function (event) {
 					});
 					break;
 					
-				case 'GID':
-					event.reply('G ID: ' + event.source.groupId );
-					break;
 			}
 			break;
 		case 'sticker':
@@ -112,6 +109,15 @@ bot.on('message', function (event) {
 			break;
 	}
 	
+});
+
+bot.on('join', function (event) {
+  if(event.source.groupId) {
+    event.reply('join group: ' + event.source.groupId);
+  }
+  if(event.source.roomId) {
+    event.reply('join room: ' + event.source.roomId);
+  }
 });
 
 app.listen(process.env.PORT || 80, function () {
