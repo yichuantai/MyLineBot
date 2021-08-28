@@ -99,9 +99,7 @@ bot.on('message', function (event) {
 					break;
 					
 				case 'GID':
-					event.source.profile().then(function (profile) {
-						return event.reply('G ID: ' + event.source.groupId );
-					});
+					event.reply('G ID: ' + event.source.groupId );
 					break;
 			}
 			break;
