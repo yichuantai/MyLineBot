@@ -3,7 +3,7 @@ const express = require('express');
 const rp = require('request-promise');
 const bodyParser = require('body-parser');
 const ME = 'U83c12de9b832a18382fbd9eef89dcb36'; // LINE USER ID
- 
+const GroupID ='C22d2d9fd24a5a33bcac805dd148d7e52';
 
 // 讀取開放資料庫資料
 function readAQI(repos){
@@ -60,6 +60,10 @@ res.send("id: " + id);
 	switch (id) {
 		case 'car_alrm':
 			bot.push(ME, {
+				type: 'text',
+				text: 'In-car temperature of car number '+car_no+ ' is ' + temperature +' over 40 Celsius degrees and there are still people in the car.Please check as soon as possible.'
+			});
+			bot.push(GroupID, {
 				type: 'text',
 				text: 'In-car temperature of car number '+car_no+ ' is ' + temperature +' over 40 Celsius degrees and there are still people in the car.Please check as soon as possible.'
 			});
