@@ -97,6 +97,12 @@ bot.on('message', function (event) {
 						return event.reply('Hello ' + profile.displayName + ' ' + profile.userId);
 					});
 					break;
+					
+				case 'GID':
+					event.source.profile().then(function (profile) {
+						return event.reply('G ID: ' + profile.groupId );
+					});
+					break;
 			}
 			break;
 		case 'sticker':
