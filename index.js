@@ -120,6 +120,16 @@ bot.on('join', function (event) {
   }
 });
 
+
+bot.on('leave', function (event) {
+  if(event.source.groupId) {
+    event.reply('leave group: ' + event.source.groupId);
+  }
+  if(event.source.roomId) {
+    event.reply('leave room: ' + event.source.roomId);
+  }
+});
+
 app.listen(process.env.PORT || 80, function () {
 	console.log('LineBot is running.');
 });
